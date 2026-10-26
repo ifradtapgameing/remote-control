@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remote Support</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #101827;
+      color: white;
+      text-align: center;
+      padding: 40px 16px;
+    }
+    .card {
+      max-width: 380px;
+      margin: 40px auto;
+      padding: 25px;
+      background: #1f2b40;
+      border-radius: 18px;
+    }
+    input, button {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 13px;
+      margin-top: 12px;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+    input { border: 1px solid #64748b; }
+    button {
+      background: #3b82f6;
+      color: white;
+      border: 0;
+      cursor: pointer;
+    }
+    #message { color: #a7f3d0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Remote Support</h1>
+    <p>Connect with consent and get technical help.</p>
+    <input id="code" placeholder="Enter support code">
+    <button onclick="requestSupport()">Request Support</button>
+    <p id="message"></p>
+    <button onclick="disconnect()">Disconnect</button>
+  </div>
+
+  <script>
+    function requestSupport() {
+      const code = document.getElementById("code").value.trim();
+      document.getElementById("message").textContent =
+        code.length >= 4
+        ? "Demo only: no device is connected."
+        : "Please enter a valid support code.";
+    }
+    function disconnect() {
+      document.getElementById("message").textContent =
+        "No active session.";
+    }
+  </script>
+</body>
+</html>
